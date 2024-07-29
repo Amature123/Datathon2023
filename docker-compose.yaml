@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  source_postgres:
+    image: postgres:15.7
+    ports:
+      - '5433:5432'
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: source_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres "]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  destination_postgres:
+    image: postgres:15.7 
+    ports:
+      - '5434:5432'
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: destination_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres "]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  script:
+    build:
+      context: ./elt
+      dockerfile: Dockerfile
+    volumes:
+      - ./InventoryAndSale_snapshot_data:/app/InventoryAndSale_snapshot_data
+    command: ['python', 'script.py']
+    networks:
+      - elt_network
+    depends_on:
+      source_postgres:
+        condition: service_healthy
+      destination_postgres:
+        condition: service_healthy
+
+    
+networks:
+  elt_network:
+    driver: bridge
+
