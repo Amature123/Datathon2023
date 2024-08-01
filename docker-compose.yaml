@@ -48,7 +48,29 @@ services:
       destination_postgres:
         condition: service_healthy
 
-    
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.4.7
+    command: 
+      [
+        "run",
+        "--profiles-dir",
+        "/root",
+        "--project-dir",
+        "/dbt"
+      ]
+    networks:
+      - elt_network
+    volumes: 
+      - ./datathon:/dbt
+      - ~/.dbt:/root
+    depends_on: 
+      script:
+        condition: service_completed_successfully
+    environment: 
+      DBT_PROFILE: default
+      DBT_TARGET: dev
+
+  
 networks:
   elt_network:
     driver: bridge

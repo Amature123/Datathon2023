@@ -1,0 +1,85 @@
+version: 2
+
+sources:
+  - name: destination_db
+    description: "Raw data from the destination PostgreSQL database."
+    database: destination_db
+    schema: public
+    tables:
+      # Inventory tables
+      - name: tonkho0
+        description: "This table contains inventory details"
+      - name: tonkho1
+        description: "This table contains inventory details"
+      - name: tonkho2
+        description: "This table contains inventory details"
+      # - name: tonkho3
+      #   description: "This table contains inventory details"
+      # - name: tonkho4
+      #   description: "This table contains inventory details"
+      # - name: tonkho5
+      #   description: "This table contains inventory details"
+      # - name: tonkho6
+      #   description: "This table contains inventory details"
+      # - name: tonkho7
+      #   description: "This table contains inventory details"
+      # - name: tonkho8
+      #   description: "This table contains inventory details"
+      # - name: tonkho9
+      #   description: "This table contains inventory details"
+      # - name: tonkho10
+      #   description: "This table contains inventory details"
+      # - name: tonkho11
+      #   description: "This table contains inventory details"
+
+      # Sales tables
+      - name: tt0
+        description: "This table contains sales details"
+      - name: tt1
+        description: "This table contains sales details"
+      - name: tt2
+        description: "This table contains sales details"
+      - name: tt3
+        description: "This table contains sales details"
+      # - name: tt4
+      #   description: "This table contains sales details"
+      # - name: tt5
+      #   description: "This table contains sales details"
+      # - name: tt6
+      #   description: "This table contains sales details"
+      # - name: tt7
+      #   description: "This table contains sales details"
+      # - name: tt8
+      #   description: "This table contains sales details"
+      # - name: tt9
+      #   description: "This table contains sales details"
+      # - name: tt10
+      #   description: "This table contains sales details"
+      # - name: tt11
+      #   description: "This table contains sales details"
+      # - name: tt12
+      #   description: "This table contains sales details"
+      # - name: tt13
+      #   description: "This table contains sales details"
+      # - name: tt14
+      #   description: "This table contains sales details"
+      # - name: tt15
+      #   description: "This table contains sales details"
+      # - name: tt16
+      #   description: "This table contains sales details"
+      # - name: tt17
+      #   description: "This table contains sales details"
+      # - name: tt18
+      #   description: "This table contains sales details"
+
+      # Other tables
+      - name: cogs
+        description: "This table contains cost information"
+      - name: retail_price
+        description: "This table contains sell price information"
+      - name: productmaster
+        description: "This table contains detailed product information"
+      - name: new_core_classification
+        description: "This table contains core classification information for products"
+      - name: distribution_channel
+        description: "This table contains information about distribution channels"

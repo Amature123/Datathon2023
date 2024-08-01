@@ -1,0 +1,367 @@
+version: 2
+
+# Define the common column structure
+inv-columns: &inv
+  - name: index
+    description: "Unique identifier for the inventory."
+    tests:
+      - unique
+      - not_null
+
+  - name: plant
+    description: "plant: the id of plant/stock"
+
+  - name: calendar_year
+    description: "Year"
+    
+  - name: calendar_yeer_week
+    description: "week in year"
+    
+  - name: sloc
+    description: "site location."
+    
+  - name: quantity
+    description: "represents the overall inventory quantity of products"
+    
+  - name: total_amount
+    description: "a total of monetary values"
+  
+  - name: product_id
+    description: "The ID of the product."
+
+sale-columns: &sale 
+  - name: month
+    description: "Month in year"
+
+  - name: week
+    description: "Week in year"
+
+  - name: site
+    description: "Warehouse/store ID"
+
+  - name: branch_id
+    description: "The branch ID"
+
+  - name: channel_id
+    description: "Code of distribution channel"
+
+  - name: distribution_channel
+    description: "Kind of distribution channel"
+
+  - name: distribution_channel_code
+    description: "Determine the distribution channel's unique code."
+
+  - name: sold_quantity
+    description: "The number of products or units that have been sold "
+
+  - name: cost_price
+    description: "The direct costs associated with producing or purchasing the goods that a company sells during a specific accounting period."
+
+  - name: net_price
+    description: "The final price of a product"
+
+  - name: customer_id
+    description: "The customer ID"
+
+  - name: product_id
+    description: "The product ID"
+# Define the models dynamically
+models:
+  - name: tonkho0
+    description: "This table contains inventory details"
+    columns: *inv
+  - name: tonkho1
+    description: "This table contains inventory details"
+    columns: *inv
+  - name: tonkho2
+    description: "This table contains inventory details"
+    columns: *inv
+  # - name: tonkho3
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho4
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho5
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho6
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho7
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho8
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho9
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho10
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+  # - name: tonkho11
+  #   description: "This table contains inventory details"
+  #   columns: *inv
+
+  - name: tt0
+    description: "This table contains sales details"
+    columns: *sale
+  - name: tt1
+    description: "This table contains sales details"
+    columns: *sale
+  - name: tt2
+    description: "This table contains sales details"
+    columns: *sale
+  - name: tt3
+    description: "This table contains sales details"
+    columns: *sale
+  # - name: tt4
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt5
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt6
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt7
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt8
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt9
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt10
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt11
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt12
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt13
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt14
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt15
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt16
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt17
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  # - name: tt18
+  #   description: "This table contains sales details"
+  #   columns: *sale
+  - name: cogs
+    description: "This table contains cost information"
+    columns: 
+      - name: amount
+        description: "monetary values denominated in VND "
+      - name: valid_from
+        description: "The date from which the cost is valid."
+      - name : product_id
+        description: "The ID of the product."
+        test : 
+        - unique
+        - not_null
+  
+  - name: retail_price
+    description: "This table contains sell price information"
+    columns: 
+      - name: amount
+        description: "monetary values denominated in VND "
+      - name: valid_from
+        description: "The date from which the price is valid."
+      - name : valid_to
+        description: "The date to which the price is valid."
+      - name : product_id
+        description: "The ID of the product."
+        test : 
+        - unique
+        - not_null
+
+  - name: productmaster
+    description: "This table contains detailed product information"
+    columns: 
+      - name: color
+        description: "Product colors by gender category"
+
+      - name: color_group
+        description: "Similar color groups"
+
+      - name: listing_price
+        description: "Detail price of each product"
+        
+      - name: price_group
+        description: "Different price groups can influence consumer decisions"
+
+      - name: gender
+        description: "The product users are classified by gender and age"
+
+      - name: product_group
+        description: "Group of products with similar characteristics in terms of design and structure"
+
+      - name: detail_product_group
+        description: "Group of product types with similar stylistic features"
+
+      - name: shoe_product
+        description: "Group of shoe product details with similar characteristics in terms of material"
+
+      - name: size_group
+        description: "Main frame sizes by gender group or special and general frames"
+
+      - name: size
+        description: "Size of each individual product detail"
+
+      - name: age_group
+        description: "Age groups with different preferences and consumer behaviors"
+
+      - name: activity_group
+        description: "A collection of activities with similar usage purposes"
+
+      - name: image_copyright
+        description: "Detailed copyright character name"
+
+      - name: lifestyle_group
+        description: "The fashion styles that consumers aspire to when choosing products"
+
+      - name: launch_season
+        description: "The time period during which the product was launched"
+
+      - name: mold_code
+        description: "Information about the product's heel code"
+
+      - name: mold_height
+        description: "Group of products with a common heel height"
+
+      - name: option
+        description: "A collection of product codes with similar details"
+
+      - name: cost_price
+        description: "Includes all the expenses associated with producing or acquiring a product"
+
+      - name: product_id
+        description: "Represents the product ID"
+        test : 
+        - unique
+        - not_null
+
+      - name: product_style_color
+        description: "Represents the style color of a product"
+
+      - name: product_style
+        description: "Represents the style of a product"
+
+      - name: brand_name
+        description: "Name of the brand"
+
+      - name: vendor_name
+        description: "Name of the vendor"
+
+  - name: new_core_classification
+    description: "This table contains core classification information for products"
+    columns:
+      - name: lauch_season
+        description: "Launch in this season"
+
+      - name: lauch_season_num
+        description: "Launch in this season"
+
+      - name: sales_season
+        description: "Sale in this season"
+
+      - name: sales_season_num
+        description: "Sale in this season"
+
+      - name: final_status
+        description: "Status of the product"
+
+      - name: b2c_assortment
+        description: "Deciding to do business"
+
+      - name: b2b_assortment
+        description: "Deciding to do business"
+
+      - name: total_assortment
+        description: "Decision to do business is 1, not to do business is 0 (2 small channels are 0, then 0 is required, two small channels are 1, then one is required, 1 of the two channels is 1, the 1 is required"
+
+      - name: product_style_color
+        description:  "This is the 'product_id' with the last two characters removed, which represents the product's style and color."
+
+  - name: distribution_channel
+    description: "This table contains information about distribution channels"
+    columns:
+      - name: b2b_b2c
+        description: "Types of commercial relationships"
+
+      - name: channel_id
+        description: "Code of distribution channel"
+        test:
+          - unique
+          - not_null
+
+      - name: region
+        description: "The region"
+
+      - name: city_level
+        description: "The city's level"
+
+      - name: store_concept
+        description: "Detailed business store model"
+
+      - name: trade_term
+        description: "Used to define the responsibilities and obligations of buyers and sellers in a sales contract or international transaction"
+
+      - name: area_range
+        description: "Area's range"
+
+      - name: store_type
+        description: "The type of store"
+
+      - name: urbanization
+        description: "The kind of urban"
+
+      - name: branch_area
+        description: "Area location of branch"
+
+      - name: address_2
+        description: "District"
+
+      - name: address_3
+        description: "Province code"
+
+      - name: showroom_area
+        description: "The area of showroom"
+
+      - name: warehouse_area
+        description: "The area of the warehouse"
+
+      - name: start_month
+        description: "Opening month"
+
+      - name: start_year
+        description: "Opening year"
+
+      - name: end_month
+        description: "Closing month"
+
+      - name: end_year
+        description: "Closing year"
+
+      - name: note
+        description: "Note for the special cases"
+
+      - name: customer_id
+        description: "The customer ID"
+
+      - name: customer_name
+        description: "The customer's name"

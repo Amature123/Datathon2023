@@ -66,7 +66,6 @@ try:
             if filename.endswith('.csv'):
                 table_name = os.path.splitext(filename)[0].lower()  # Use filename without extension as table name
                 file_path = os.path.join(dir_path, filename)
-                logger.info(f"Processing file: {table_name}")
                 try:
                     # Read CSV file
                     df = pd.read_csv(file_path)
