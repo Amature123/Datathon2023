@@ -7,7 +7,7 @@ inv-columns: &inv
     tests:
       - unique
       - not_null
-
+      
   - name: plant
     description: "plant: the id of plant/stock"
 
@@ -173,7 +173,14 @@ models:
         test : 
         - unique
         - not_null
-  
+  - name: concatinv
+    description: "This table contains inventory details"
+    columns: *inv
+    
+  - name: concatsale
+    description: "This table contains sales details"
+    columns: *sale
+
   - name: retail_price
     description: "This table contains sell price information"
     columns: 

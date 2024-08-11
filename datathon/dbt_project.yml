@@ -25,7 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 vars:
   # Define your project-specific variables here, e.g.:
   ninv: 2
-  nsale: 3
+  nsale: 2
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models

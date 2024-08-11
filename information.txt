@@ -1,0 +1,251 @@
+The dataset contains many files and is divided into three areas
+
+Sales data area
+
+Sales data are collected every month from 2022 - 2023, the files follow the format
+
+“TT T<month>-<year>.xlsx”
+
+Where
+
+<month> represents the month number (from 01 to 12)
+
+<year> represents year number (2022 or 2023).
+
+For example, the file “TT T01-2022.xlsx” represents the sales data for January 2022
+
+Each file includes the following data fields:
+
+● month: month in year
+
+● week: week in year
+
+● site: warehouse/store ID
+
+● branch_id : the branch ID
+
+● channel_id: code of distribution channel
+
+● distribution_channel: kind of distribution channel
+
+● distribution_channel_code: Determine the distribution channel's unique code.
+
+● sold_quantity: the number of products or units that have been sold (SỐ LƯỢNG TIÊU THỤ)
+
+● cost_price: the direct costs associated with producing or purchasing the goods that a company sells
+
+during a specific accounting period. (TRỊ GIÁ TIÊU THỤ - GIÁ VỐN)
+
+● net_price: the final price of a product (TRỊ GIÁ TIÊU THỊ - GIÁ SAU CHIẾT KHẤU )
+
+● customer_id: the customer ID
+
+● product_id: the product ID
+
+Inventory data area
+
+Inventory data includes multiple files representing the information on inventory management across plants
+
+(stocks), the data is collected between 2022 and 2023 at the end of every two months. The files follow
+
+the format
+
+“<date>-<month>-<year>_Ton Kho <start_plant_id> - <end_plant_id>.xlsx”
+
+Where
+
+<date>-<month>-<year> represents the date that inventory data is collected
+
+<start_plant_id> - <end_plant_id> represents the range of plants (stocks) id in the files.
+
+For instance, the file “31-10-2022_Ton Kho 1161 - 1170.xlsx” represents the inventory management data
+
+collected at the end of October in the stocks having IDs from 1161 to 1170
+
+Each file includes the following data fields:
+
+● plant: the id of plant/stock
+
+● calendar_year: year
+
+● calendar_yeer_week: week in year
+
+● sloc: site location
+
+● quantity: represents the overall inventory quantity of products
+
+● total_amount: a total of monetary values
+
+● product_id: represents the product ID
+
+Master data area
+
+This area includes the following data files
+
+● COGS.xlsx: cost price information (Thông tin giá vốn)
+
+● Retail_price.xlsx: selling price information (Thông tin giá bán)
+
+● Productmaster.xlsx: details of product information
+
+● New_Core_Classification.xlsx: illustrates when a product is for sell
+
+● Distribution Channel.xlsx: details information of distributors (which are stores or shops that buy
+
+products and sell to customers)
+
+The details of the data fields for each file are as follows
+
+COGS.xlsx
+
+● amount: monetary values denominated in VND currency units
+
+● valid_from: start date
+
+● product_id: represents the product ID
+
+Retail_price.xlsx
+
+● amount: monetary values denominated in VND currency units
+
+● valid_from: start date
+
+● valid_to: end date
+
+● product_id: represents the product ID
+
+Productmaster.xlsx
+
+● color: Product colors by gender category
+
+● color_group: Similar color groups
+
+● listing_price: detail price of each product
+
+● price_group: Different price groups can influence consumer decisions
+
+● gender: The product users are classified by gender and age
+
+● product_group: Group of products with similar characteristics in terms of design and structure
+
+● detail_product_group: Group of product types with similar stylistic features.
+
+● shoe_product: Group of shoe product details with similar characteristics in terms of material
+
+● size_group: Main frame sizes by gender group or special and exceptional frames
+
+● size: Size of each individual product detail
+
+● age_group: Age groups with different preferences and consumer behaviors
+
+● activity_group: A collection of activities with similar usage purposes
+
+● image_copyright: Detailed copyright character name
+
+● lifestyle_group: The fashion styles that consumers aspire to when choosing products
+
+● launch_season: the time period during
+
+● mold_code: Information about the product's heel code
+
+● heel_height: Group of products with a common heel height
+
+● option: A collection of product codes with similar details
+
+● cost_price: includes all the expenses associated with producing or acquiring a product
+
+● product_id: represents the product ID
+
+● product_syle_color: represents the style color of a product
+
+● product_syle: represents the style of a product
+
+● brand_name: name of the branch
+
+● vendor_name: name of the vendor
+
+New_Core_Classification.xlsx
+
+● lauch_season: launch in this season
+
+● lauch_season_num: launch in this season
+
+● sales_season: sale in this season
+
+● sales_season_num: sale in this season
+
+● final_status: status of the product
+
+● b2c_assortment: Deciding to do business
+
+● b2b_assortment: Deciding to do business
+
+● total_assortment: Decision to do business is 1, not to do business is 0 (2 small channels are 0,
+
+then 0 is required, two small channels are 1, then one is required, 1 of the two channels is 1, then 1 is
+
+required)
+
+● product_syle_color: This is the 'product_id' with the last two characters removed, which
+
+represents the product's style and color.
+
+Distribution Channel.xlsx
+
+● b2b_b2c: types of commercial relationships
+
+● channel_id: code of distribution channel
+
+● region: the region
+
+● city_level: the city's level
+
+● store_concept: Detailed business store model
+
+● trade_term: used to define the responsibilities and obligations of buyers and sellers in a sales
+
+contract or international transaction
+
+● area_range: area’s range
+
+● store_type: the type of store
+
+● urbanization: the kind of urban
+
+● branch_area: area location of branch
+
+● address_2: district
+
+● address_3: province code
+
+● showroom_area: the area of showroom
+
+● warehouse_area: the area of the warehouse
+
+● start_month: opening month
+
+● start_year: opening year
+
+● end_month: closing month
+
+● end_year: closing year
+
+● note: note for the special cases
+
+● customer_id: the customer ID
+
+● customer_name: the customer’s name
+
+Topic suggestions
+
+Below are suggestions for how to leverage the dataset, the participants are encouraged to brainstorm
+
+their own ideas to develop their Data/AI solutions.
+
+● Selling strategy suggestion: recommend when to sell which product
+
+● Sales predictions and explanations: how would the sales be next month and how to improve the
+
+revenue
+
+● Inventory strategy suggestion: manage, visualize, and analyze inventory data to make forecasting,
